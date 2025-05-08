@@ -1,15 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <p>Count:{{ count }}</p>
+    <button @click="increment">Increment</button>
+    <button @click="decrement">Decrement</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState,mapActions } from 'vuex';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  computed:{
+    ...mapState(['count'])
+  },
+  methods:{
+    ...mapActions(['increment','decrement'])
   }
 }
 </script>
